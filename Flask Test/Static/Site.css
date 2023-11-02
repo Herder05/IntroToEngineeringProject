@@ -1,0 +1,56 @@
+.background {
+    background-color:#002b36;
+}
+.headerOne {
+    margin: auto;
+    color:#839496;
+    border:6px solid #218bd2;
+    width:50%;
+    
+}
+.sourceList{
+    margin: auto;
+    width:50%;
+    color: #839496;
+}
+.backButton{
+    float:left
+}
+.infoButton{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width: 100%;
+    background-color:#021d3f;
+}
+.image{
+    width:500;
+    height: 500;
+}
+
+.body{
+    color:#839496;
+}
+a:link {
+    color: #328fff;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: #328fff;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: whitesmoke;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+  }

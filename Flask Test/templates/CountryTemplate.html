@@ -1,0 +1,18 @@
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='site.css')}}" />
+<html>
+	<body class="background">
+		<a href={{ url_for("home")}} class="backButton">Back</a>
+		<h1 class="headerOne">{{Country}}</h1>
+		<br>
+        <center><img class="image" src={{url_for('static', filename='Data.png')}} alt="Data for the Country that was clicked">
+		<h4 class="body">
+			Average temperature: {{avg}} <br>
+			Average Increase in temperature per year: {{avgInc}} <br>
+			Total increase in temperature: {{totalInc}}
+		</h4>
+		</center>
+		<div class="infoButton">
+			<a href={{ url_for("info")}}>Info</a>
+		</div>
+	</body>
+</html>
