@@ -1,0 +1,5 @@
+uses data from https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data
+Uses the Matlab Python Library, Flask, and Markup safe
+installed libraries are included in the .venv enviroment
+to run the code select your pythong interpreter as the .venv file and run it then it will give you a link click the link and it will take you to a webpage of the code working
+Currently the code does not input data but it can proccess any data it is handed
