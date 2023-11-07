@@ -1,0 +1,28 @@
+uses data from https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data
+Uses the Matlab Python Library, Flask, and Markup safe
+installed libraries are included in the .venv enviroment
+UPDATE VENV FILE WILL NOT UPLOAD TO GITHUB 
+To run the code do create a enviroment in your ide and then run "pip install -r requirements.txt"
+Afterwords to run the code run "python -m flask run" in the terminal
+
+If you want to run the file more than once you can create a launch.json file in visual studio code and select flask application
+in the launch.json file use the following code:
+{
+    "name": "Python: Flask",
+    "type": "python",
+    "request": "launch",
+    "module": "flask",
+    "env": {
+        "FLASK_APP": "app.py",
+        "FLASK_DEBUG": "1"
+    },
+    "args": [
+        "run",
+        "--no-debugger",
+        "--no-reload"
+    ],
+    "jinja": true,
+    "justMyCode": true
+},
+
+Currently the code does not input data but it can proccess any data it is handed
