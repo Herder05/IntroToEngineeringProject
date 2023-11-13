@@ -5,33 +5,41 @@ import numpy as np
 
 global CountryList
 CountryList = []
-#TODO Fix this as it does not work currently it fails to properly input the data and the data is not correctly in
 def initialize():
     global CountryList
-    #file = open("Backend\TempByAvgCountryClean.csv", "r", encoding="utf8")
-    #country = ""
-    #x = []
-    #y = []
-    #flag = True
-    #for line in file:
-    #    if flag:
-    #        flag = False
-    #        country = line.split(",")[2]
-    #    if country != line.split(",")[2]:
-    #        f = False
-    #        for x in CountryList:
-    #            if x["Country"] == country:
-    #                f = True
-    #        if not f:
-    #            CountryList.append({"Country":country,"Years":x,"Temps":y})
-    #        country = line.split(",")[2]
-    #        x = [line.split(",")[0]]
-    #        y = [line.split(",")[1]]
-    #    x.append(line.split(",")[0])
-    #    y.append(line.split(",")[1])
-    #FIXME This temporarly clears the above part until it works and replaces it with some temporary sample data
-    CountryList = [{"Country":"A","Years":[0,1,2,3,4,5,6],"Temps":[1,2,3,4,5,6,7]},{"Country":"B","Years":[0,1,2,3,4,5,6],"Temps":[1,2,3,4,5,6,7]},{"Country":"C","Years":[0,1,2,3,4,5,6],"Temps":[1,2,3,4,5,6,7]}]
-
+    CountryList.clear()
+    file = open("Backend\GlobalTempsSingleCountry.csv", "r", encoding="utf8")
+    country = ""
+    x = []
+    y = []
+    flag = True
+    for line in file:
+        if flag:
+            flag = False
+            country = line.split(",")[2]
+        if country != line.split(",")[2]:
+            xx = []
+            yy = []
+            for thing in x:
+                xx.append(thing)
+            for thing in y:
+                yy.append(thing)
+            CountryList.append({"Country":country[-2],"Years":xx,"Temps":yy})
+            x.clear()
+            y.clear()
+            country = line.split(",")[2]
+        x.append(int(line.split(",")[0]))
+        y.append(int(line.split(",")[1]))
+    xx = []
+    for number in CountryList[len(CountryList) - 1].get("Years"):
+        xx.append(number)
+    xx.append(int(x[0]))
+    CountryList[len(CountryList) - 1].update({"Years":xx})
+    xx.clear()
+    for number in CountryList[len(CountryList) - 1].get("Temps"):
+        xx.append(int(number))
+    xx.append(int(y[0]))
+    CountryList[len(CountryList) - 1].update({"Temps":xx})
 
 def getAllStrings():
     list = []
@@ -46,6 +54,9 @@ def ReturnGraph(Country):
             x = dictionary["Years"]
             y = dictionary["Temps"]
             plt.plot(x,y)
+            plt.xticks(x)
+            plt.xlabel("Years")
+            plt.ylabel("Temperatures")
             plt.savefig("Static\\Data.png")
             plt.clf()
             plt.close()
