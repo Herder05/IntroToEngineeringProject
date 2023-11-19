@@ -51,6 +51,17 @@ def getAllStrings():
         list.append(country["Country"])
     return list
 
+def getAvg(country):
+    data = 0
+    count = 1
+    for thing in CountryList:
+        if thing["Country"] == country:
+            for x in thing["Temps"]:
+                data += x
+                count += 1
+    return data / count
+
+
 def ReturnGraph(Country):
     for dictionary in CountryList:
         if dictionary["Country"] == Country:

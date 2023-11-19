@@ -61,9 +61,7 @@ def Country():
     return render_template(
         "CountryTemplate.html",
         Country = country,
-        avg = 0, #TODO Call backend for data
-        avgInc = 0, #TODO Call Backend for data
-        totalInc = 0  #TODO call backend for data
+        avg = format(getAvg(country),".2f")
     )
 
 #Loads the info page
