@@ -1,7 +1,3 @@
-#OUTSIDE REQUIREMENTS: (PLEASE ACTUALLY GET ISNTALL STUFF HERE!), Flask: vscode thing for it here, MarkupSafe, MathLab: pip install matplotlib
-
-
-
 # Adds the ability to import an HTML file and assign variables in the file to variables from your code
 from flask import render_template
 #handles python using html
@@ -14,10 +10,10 @@ from flask import jsonify
 import webbrowser
 #lets you write the html in python and add it to the render template (thank you chatgpt for telling me this import exists)
 from markupsafe import Markup
-
+#import the backend.py
 from backend import *
 
-#not entirely sure why or how this works HOWEVER if i touch it everything breaks :3
+#defines the variable app to be a flask application
 app = Flask(__name__)
 
 #The Text In app Route is the part that goes after the basic url so for example https://baseURL/AppRouteText/ can be used so you have multiple pages
@@ -77,19 +73,6 @@ def info():
 @app.route("/DataSource1/")
 def DataSource1():
     webbrowser.open_new_tab('https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data')
-    return render_template(
-        "Info.html"
-    )
-#image Credits
-@app.route("/ImageS1/")
-def ImageS1():
-    webbrowser.open_new_tab('http://google.com')
-    return render_template(
-        "Info.html"
-    )
-@app.route("/ImageS2/")
-def ImageS2():
-    webbrowser.open_new_tab('http://google.com')
     return render_template(
         "Info.html"
     )
