@@ -52,13 +52,16 @@ def Country():
     global country
     
     #TODO tell backend to update the image "Data.png"
-    ReturnGraph(country)
-    #Call the image as an if statement so it doesnt execute the rest of the code while waiting for the thing to make the image
-    return render_template(
-        "CountryTemplate.html",
-        Country = country,
-        avg = format(getAvg(country),".2f")
-    )
+    try:
+        ReturnGraph(country)
+        #Call the image as an if statement so it doesnt execute the rest of the code while waiting for the thing to make the image
+        return render_template(
+            "CountryTemplate.html",
+            Country = country,
+            avg = format(getAvg(country),".2f")
+        )
+    except:
+        return home()
 
 #Loads the info page
 @app.route("/info/")
